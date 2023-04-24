@@ -60,6 +60,7 @@ interface Data {
   publisher: string;
   inventory: number;
   approved: boolean;
+  operate?: any;
 }
 
 export default function AdList() {
@@ -71,7 +72,7 @@ export default function AdList() {
     c.init().then(() => {
       c.allAds().then(v => {
         let arr: Data[] = []
-        v.forEach((item, index) => {
+        v.forEach((item:any, index: number) => {
 
           arr.push({
             idx: index,
@@ -87,7 +88,7 @@ export default function AdList() {
     })
   }, [])
 
-  const cell = (column: Column, value: string | boolean | number, row) => {
+  const cell = (column: Column, value: string | boolean | number, row: Data) => {
     if (column.id === 'operate') {
       return <Button
         variant="contained"

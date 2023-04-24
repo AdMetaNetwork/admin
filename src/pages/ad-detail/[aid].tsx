@@ -129,9 +129,7 @@ export default function AdDetail() {
                   size={'small'}
                   onClick={ () => {
                     const aid = BigNumber.from(query.aid)
-                    ctx.approveAd(aid).then((v) => {
-                      console.log(v)
-                    })
+                    ctx.approveAd(aid).then()
                   } }
                 >Approve</Button>
             }
